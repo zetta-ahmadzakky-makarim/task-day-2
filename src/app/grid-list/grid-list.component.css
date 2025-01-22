@@ -1,0 +1,28 @@
+mat-grid-list {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  mat-grid-list {
+    grid-template-columns: 1;
+  }
+}
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+mat-chip-list {
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  text-size-adjust: 18px;
+}
+
+mat-chip {
+  font-size: 18px;
+  background-color: #1976d2;
+}

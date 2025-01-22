@@ -1,21 +1,21 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 interface Card {
   image: string;
   title: string;
   category: string;
-};
+}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'task-day-2';
 
   categories = ['All', 'Fire', 'Water', 'Grass'];
-  cards:  Card[]= [
+  cards: Card[] = [
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/cf47f9fac4ed3037ff2a8ea83204e32aff8fb5f3.png', title: 'Bulbasaur', category: 'Grass' },
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/3245e4f8c04aa0619cb31884dbf123c6918b3700.png', title: 'Ivysaur', category: 'Grass' },
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/0186d64c5773c8d3d03cd05dc79574b2d2798d4f.png', title: 'Venusaur', category: 'Grass' },
@@ -29,6 +29,23 @@ export class AppComponent {
 
   filteredCards = this.cards;
 
+  ngOnInit(): void {
+    const newCategory = this.categories.push('Electric');
+    console.log('New Category added');
+  }
+
+  ngAfterViewInit(): void {
+    const newCard = {
+      image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/2b3f6ff00db7a1efae21d85cfb8995eaff2da8d8.png',
+      title: 'Pikachu',
+      category: 'Electric'
+    };
+  
+    this.cards.push(newCard);
+    this.filteredCards = [...this.cards];
+    console.log('New Pokemon Added:', newCard);
+  }
+
   onCategorySelected(category: string) {
     if (category === 'All') {
       this.filteredCards = this.cards;
@@ -36,4 +53,11 @@ export class AppComponent {
       this.filteredCards = this.cards.filter(card => card.category === category);
     }
   }
+
+  searchPokemon(pokemonName: string) {
+    this.filteredCards = this.cards.filter(card => 
+      card.title.toLowerCase().includes(pokemonName.toLowerCase())
+    );
+  }
+
 }

@@ -5,8 +5,84 @@
     justify-content: center;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     font-size: 24px;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 32px;
+}
+
+.search-feat {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+button {
+    font-size: 14px;
+    background-color: #1976D2;
+    border: 0;
+    border-radius: 4px;
+    color: whitesmoke;
+}
+
+input {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.content-card {
+    display: flex;
+    flex-direction: column;
+    width: 360px;
+    height: 360px;
+}
+
+.content-card:hover {
+    background-color: #FFC107;
+    transition: 0.3s;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: auto;
+    height: 240px;
+}
+
+mat-card-title {
+    font-size: 18px;
+}
+
+mat-card-subtitle {
+    font-size: 14px;
+    color: #757575;
+}
+
+@media screen and (max-width: 600px) {
+    .content-card {
+        height: 160px;
+    }
+
+    img {
+        width: auto;
+        height: 80%;
+    }
+
+    mat-card-title {
+        font-size: 16px;
+    }
+
+    mat-card-subtitle {
+        font-size: 12px;
+    }
 }

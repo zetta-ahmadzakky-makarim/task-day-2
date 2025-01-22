@@ -1,5 +1,11 @@
 <div class="container">
-  <h1>POKEDEX</h1>
-  <app-chips [categories]="categories" (categorySelected)="onCategorySelected($event)"></app-chips>
+  <div class="header">
+    <h1>POKEDEX</h1>
+    <app-chips [categories]="categories" (categorySelected)="onCategorySelected($event)"></app-chips>
+  </div>
+  <div  class="search-feat">
+    <input #pokemonInput placeholder="Input Your Pokemon Name">
+    <button (click)="searchPokemon(pokemonInput.value)">Search</button>
+  </div>
   <app-grid-list [cards]="filteredCards"></app-grid-list>
 </div>

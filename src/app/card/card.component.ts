@@ -1,25 +1,15 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
-  // encapsulation: ViewEncapsulation.Emulated
-  // encapsulation: ViewEncapsulation.None
-  // encapsulation: ViewEncapsulation.ShadowDom
 })
-export class CardComponent {
+export class CardComponent implements OnDestroy {
   @Input() card: { image: string; title: string; category: string };
+  @Output() cardDeleted = new EventEmitter<void>();
 
-  getTypeImage(): string {
-    return typeof this.card.image
-  }
-
-  getTypeTitle(): string {
-    return typeof this.card.title
-  }
-
-  getTypeSubtitle(): string {
-    return typeof this.card.category
+  ngOnDestroy(): void {
+    console.log(`${this.card.title} has been deleted.`);
   }
 }
