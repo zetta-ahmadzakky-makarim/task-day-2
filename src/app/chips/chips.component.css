@@ -1,0 +1,12 @@
+mat-chip-list {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    text-size-adjust: 18px;
+}
+
+mat-chip {
+    font-size: 18px;
+    background-color: #1976D2;
+}

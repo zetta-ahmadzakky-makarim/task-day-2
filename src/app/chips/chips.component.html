@@ -1,0 +1,9 @@
+<mat-chip-list aria-label="Type">
+  <mat-chip
+    
+    *ngFor="let category of categories"
+    (click)="selectCategory(category)"
+    [selected]="category === selectedCategory"
+    >{{ category }}
+  </mat-chip>
+</mat-chip-list>
