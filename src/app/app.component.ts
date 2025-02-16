@@ -1,5 +1,5 @@
+// *************** Angular Imports ***************
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-
 interface Card {
   image: string;
   title: string;
@@ -9,12 +9,11 @@ interface Card {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'task-day-2';
-
-  categories = ['All', 'Fire', 'Water', 'Grass'];
+  categories: string[] = ['All', 'Fire', 'Water', 'Grass'];
   cards: Card[] = [
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/cf47f9fac4ed3037ff2a8ea83204e32aff8fb5f3.png', title: 'Bulbasaur', category: 'Grass' },
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/3245e4f8c04aa0619cb31884dbf123c6918b3700.png', title: 'Ivysaur', category: 'Grass' },
@@ -26,38 +25,32 @@ export class AppComponent implements OnInit, AfterViewInit {
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/a3bc17e6215031332462cc64e59b7922ddd14b91.png', title: 'Wartortle', category: 'Water' },
     { image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/2fe157db59153af8abd636ab03c7df6f28b08242.png', title: 'Blastoise', category: 'Water' },
   ];
-
-  filteredCards = this.cards;
+  filteredCards: Card[] = this.cards;
 
   ngOnInit(): void {
-    const newCategory = this.categories.push('Electric');
+    this.categories.push('Electric');
     console.log('New Category added');
   }
 
   ngAfterViewInit(): void {
-    const newCard = {
+    const newCard: Card = {
       image: 'https://id.portal-pokemon.com/play/resources/pokedex/img/pm/2b3f6ff00db7a1efae21d85cfb8995eaff2da8d8.png',
       title: 'Pikachu',
-      category: 'Electric'
+      category: 'Electric',
     };
-  
+
     this.cards.push(newCard);
     this.filteredCards = [...this.cards];
     console.log('New Pokemon Added:', newCard);
   }
 
-  onCategorySelected(category: string) {
-    if (category === 'All') {
-      this.filteredCards = this.cards;
-    } else {
-      this.filteredCards = this.cards.filter(card => card.category === category);
-    }
+  onCategorySelected(category: string): void {
+    this.filteredCards = category === 'All' ? this.cards : this.cards.filter(card => card.category === category);
   }
 
-  searchPokemon(pokemonName: string) {
+  searchPokemon(pokemonName: string): void {
     this.filteredCards = this.cards.filter(card => 
       card.title.toLowerCase().includes(pokemonName.toLowerCase())
     );
   }
-
 }

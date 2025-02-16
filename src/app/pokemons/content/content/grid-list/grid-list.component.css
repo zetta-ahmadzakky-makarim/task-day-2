@@ -1,0 +1,21 @@
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-list app-card {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .card-list app-card {
+    width: calc(33.33% - 16px);
+    max-width: 400px;
+    margin: 0;
+  }
+}

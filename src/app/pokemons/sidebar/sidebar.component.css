@@ -1,0 +1,32 @@
+.sidebar-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 16px;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+.search-feat {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+button {
+    font-size: 14px;
+    background-color: #1976D2;
+    border: 0;
+    border-radius: 4px;
+    color: whitesmoke;
+    font-family: 'Open Sans', sans-serif;
+}
+
+input {
+    padding: 8px;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+}

@@ -1,0 +1,8 @@
+<div class="sidebar-container">
+  <h1>POKEDEX</h1>
+  <div class="search-feat">
+    <input #pokemonInput placeholder="Input Your Pokemon Name" />
+    <button (click)="onSearch(pokemonInput.value)">Search</button>
+  </div>
+  <app-chips [categories]="categories" (categorySelected)="onCategorySelect($event)"></app-chips>
+</div>

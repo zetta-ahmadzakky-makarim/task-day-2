@@ -1,0 +1,4 @@
+<div>
+    <app-sidebar (searchPokemon)="searchPokemon($event)" (categorySelected)="onCategorySelected($event)"></app-sidebar>
+    <app-content [filteredCards]="filteredCards"></app-content>
+</div>

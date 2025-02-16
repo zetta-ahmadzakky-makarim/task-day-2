@@ -13,5 +13,6 @@ export class CardComponent implements OnDestroy {
 
   ngOnDestroy(): void {
     console.log(`${this.card.title} has been deleted.`);
+    this.cardDeleted.emit();
   }
 }
