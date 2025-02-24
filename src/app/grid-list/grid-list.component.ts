@@ -21,7 +21,7 @@ export class GridListComponent implements OnChanges {
   @Input() cards: object[] = [];
   @Input() selectedCategory: string;
 
-  // *************** State Variables ***************
+  // *************** Misc Variables ***************
   cols: number = 3;
 
   constructor(private breakpointObserver: BreakpointObserver) {

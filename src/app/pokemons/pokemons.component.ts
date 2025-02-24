@@ -16,7 +16,7 @@ export class PokemonsComponent implements OnInit, AfterViewInit, OnDestroy {
   // *************** Private Variables ***************
   private subs: SubSink = new SubSink();
 
-  // *************** State Variables ***************
+  // *************** Misc Variables ***************
   title: string = 'task-day-2';
   filteredCards: { image: string; title: string; category: string }[];
 

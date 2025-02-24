@@ -2,6 +2,7 @@
 import { BehaviorSubject } from 'rxjs';
 
 export class PokemonsService {
+  // *************** Misc Variables ***************
   categories: string[] = ['All', 'Fire', 'Water', 'Grass'];
   initialCardsSubject = [
     {
@@ -54,16 +55,35 @@ export class PokemonsService {
   private filteredCardsSubject = new BehaviorSubject<{ image: string; title: string; category: string }[]>(this.initialCardsSubject);
   filteredCards$ = this.filteredCardsSubject.asObservable();
 
+  /**
+   * Filters cards based on the selected category.
+   * - If 'All' is selected, displays all cards.
+   * - Otherwise, filters cards that match the selected category.
+   * 
+   * @param {string} category - The selected category to filter cards.
+   */
   onCategorySelected(category: string): void {
     const filteredCards =
       category === 'All' ? this.initialCardsSubject : this.initialCardsSubject.filter((card) => card.category === category);
     this.filteredCardsSubject.next(filteredCards);
   }
 
+  /**
+   * Adds a new card to the initial card list.
+   * - Pushes the given card object to the `initialCardsSubject`.
+   * 
+   * @param {{ image: string; title: string; category: string }} value - The new card object to add.
+   */
   updateCardsSubject(value: { image: string; title: string; category: string }): void {
     this.initialCardsSubject.push(value);
   }
 
+  /**
+   * Filters and displays cards based on the searched Pokémon name.
+   * - Performs a case-insensitive search in card titles.
+   * 
+   * @param {string} pokemonName - The name of the Pokémon to search for.
+   */
   searchPokemon(pokemonName: string): void {
     const filteredCards = this.initialCardsSubject.filter((card) =>
       card.title.toLowerCase().includes(pokemonName.toLowerCase())

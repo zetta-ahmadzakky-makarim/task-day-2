@@ -16,7 +16,7 @@ export class ChipsComponent {
   @Input() categories: string[] = [];
   @Output() categorySelected = new EventEmitter<string>();
 
-  // *************** State Variables ***************
+  // *************** Misc Variables ***************
   selectedCategory: string = 'All';
 
   selectCategory(category: string): void {

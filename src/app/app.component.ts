@@ -12,6 +12,7 @@ interface Card {
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, AfterViewInit {
+  // *************** Misc Variables ***************
   title = 'task-day-2';
   categories: string[] = ['All', 'Fire', 'Water', 'Grass'];
   cards: Card[] = [

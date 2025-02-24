@@ -11,7 +11,7 @@ export class SidebarComponent implements OnInit {
   @Output() searchPokemon: EventEmitter<string> = new EventEmitter();
   @Output() categorySelected: EventEmitter<string> = new EventEmitter();
 
-  // *************** State Variables ***************
+  // *************** Misc Variables ***************
   categories: string[] = ['All', 'Fire', 'Water', 'Grass'];
 
   constructor() {}
